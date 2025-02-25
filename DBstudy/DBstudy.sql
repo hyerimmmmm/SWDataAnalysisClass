@@ -1,3 +1,54 @@
+DROP TABLE 데이터디자인 ;
+DROP TABLE 교육생정보 ; 
+DROP TABLE 성적표 ; 
+
+CREATE TABLE 교육생정보 (
+학생ID VARCHAR2(9) PRIMARY KEY , 
+학생이름 VARCHAR2(50) NOT NULL , 
+팀 VARCHAR2(5) 
+); 
+
+CREATE TABLE 성적표 ( 
+    학생ID VARCHAR2(9) , 
+    과목   VARCHAR2(30) , 
+    성적   NUMBER  , 
+    CONSTRAINT PK_성적표 PRIMARY KEY(학생ID , 과목) , 
+    CONSTRAINT FK_성적표 FOREIGN KEY(학생ID) REFERENCES 교육생정보(학생ID) 
+)  ; 
+
+INSERT INTO 교육생정보 VALUES ('SMHRD1' , '조준용' , 'A') ; 
+INSERT INTO 교육생정보 VALUES ('SMHRD2' , '박병관' , 'A') ; 
+INSERT INTO 교육생정보 VALUES ('SMHRD3' , '이명훈' , 'B') ; 
+INSERT INTO 교육생정보 VALUES ('SMHRD4' , '손동연' , 'B') ; 
+INSERT INTO 교육생정보 VALUES ('SMHRD5' , '000' , 'C') ; 
+INSERT INTO 교육생정보 VALUES ('SMHRD6' , '000' , 'C') ; 
+INSERT INTO 교육생정보 VALUES ('SMHRD7' , '000' , 'C') ; 
+INSERT INTO 교육생정보 VALUES ('SMHRD8' , '000' , 'C') ; 
+INSERT INTO 교육생정보 VALUES ('SMHRD9' , '000' , 'C') ; 
+
+INSERT INTO 성적표 VALUES('SMHRD1'  ,'JAVA' , 90); 
+INSERT INTO 성적표 VALUES('SMHRD1'  ,'DATABASE' , 85); 
+INSERT INTO 성적표 VALUES('SMHRD1'  ,'PYTHON' , 100); 
+INSERT INTO 성적표 VALUES('SMHRD2'  ,'JAVA' , 100); 
+INSERT INTO 성적표 VALUES('SMHRD2'  ,'DATABASE' , 100); 
+INSERT INTO 성적표 VALUES('SMHRD2'  ,'PYTHON' , 20); 
+INSERT INTO 성적표 VALUES('SMHRD3'  ,'JAVA' , 100); 
+INSERT INTO 성적표 VALUES('SMHRD3'  ,'DATABASE' , 100); 
+INSERT INTO 성적표 VALUES('SMHRD3'  ,'PYTHON' , 20); 
+INSERT INTO 성적표 VALUES('SMHRD4'  ,'JAVA' , 85); 
+INSERT INTO 성적표 VALUES('SMHRD4'  ,'DATABASE' , 40); 
+INSERT INTO 성적표 VALUES('SMHRD4'  ,'PYTHON' , 60); 
+INSERT INTO 성적표 VALUES('SMHRD5'  ,'JAVA' , 100); 
+INSERT INTO 성적표 VALUES('SMHRD5'  ,'DATABASE' , 100); 
+INSERT INTO 성적표 VALUES('SMHRD5'  ,'PYTHON' , 100); 
+INSERT INTO 성적표 VALUES ( 'SMHRD6' , 'JAVA' , NULL ) ; 
+INSERT INTO 성적표 VALUES ( 'SMHRD6' , 'DATABASE' , NULL ) ; 
+INSERT INTO 성적표 VALUES ( 'SMHRD6' , 'PYTHON' , NULL ) ; 
+
+COMMIT; 
+
+
+
 -- 주석 달기
 
 /*
@@ -222,4 +273,66 @@ where first_name like 'S%n';
 -- 1월에 입사한 직원의 이름과 입사일을 출력해주세요.
 select first_name, hire_date
 from employees
-where hire_date like '%01%';
+where hire_date like '%/01/%';
+
+-- 예제
+select department_id, count(employee_id) 인원수
+from employees
+group by department_id;
+
+-- 각 부서별 최대 급여를 출력해주세요.
+select department_id, max(salary) as 최대급여
+from employees
+group by department_id;
+
+-- 각 부서별 최소 급여를 출력해주세요.
+select department_id, min(salary) as 최소급여
+from employees
+group by department_id;
+
+-- 각 부서별 평균 급여를 출력해주세요.
+select department_id, round(avg(salary), 0) as 평균급여
+from employees
+group by department_id;
+
+-- 성적표 테이블에서 학생별로 평균점수 출력하기
+-- 단, 소수점 1자리까지만 출력
+select 학생ID, round(avg(성적), 1) as 평균성적
+from 성적표
+group by 학생ID;
+
+-- 과목별 최고 성적과 최저 성적을 출력해주세요.
+select max(성적) 최고성적, min(성적) 최저성적, 과목
+from 성적표
+group by 과목;
+
+-- 교육생 정보 테이블에서 각팀에 몇 명이 있는지 출력해주세요.
+select count(학생ID) 인원, 팀
+from 교육생정보
+group by 팀;
+
+-- 성적표 테이블에서 학생별 Python을 제외한 나머지 과목의 성적의 평균을 출력해주세요.
+select avg(성적) 평균성적, 학생ID
+from 성적표
+where 과목 != 'PYTHON'
+group by 학생ID;
+
+-- 평균 성적이 75점 이하인 학생 ID, 평균 성적을 출력해주세요.
+select 학생ID, round(avg(성적), 1) 평균성적
+from 성적표
+group by 학생ID
+having avg(성적) <= 75;
+
+-- 교육생정보 테이블에서 소속된 팀의 인원수가 3명 이상인 팀과 인원수를 출력해주세요.
+select 팀, count(학생ID)
+from 교육생정보
+group by 팀
+having count(학생ID) >= 3;
+
+-- 성적표 테이블에서 학생별 평균성적을 출력하되 null이 아닌 값만 출력해주세요.
+select round(avg(성적), 1) 평균성적, 학생ID
+from 성적표
+group by 학생ID
+having avg(성적) is not null;
+
+
