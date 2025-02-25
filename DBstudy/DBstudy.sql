@@ -173,5 +173,53 @@ where department_id = 30 or department_id = 50 or department_id = 90;
 -- 연산자 in을 사용해서 출력하기
 select *
 from employees
-where department_id in (30, 60, 90);
+where department_id in (30, 50, 90);
 
+-- 부서 ID가 30, 50, 90가 아닌 직원의 모든 정보를 출력해주세요.
+select *
+from employees
+where department_id != 30 and department_id != 50 and department_id != 90;
+-- 연산자 not in을 사용해서 출력하기
+select *
+from employees
+where department_id not in (30, 50, 90);
+
+-- job_id가 ‘AD_VP’이거나 ‘ST_MAN’인 사람의 이름과 job_id를 출력해주세요.
+select first_name, job_id
+from employees
+where job_id in ('AD_VP', 'ST_MAN');
+
+-- 매니저 ID가 145, 146, 147, 148, 149가 아닌 직원의 이름과 매니저 ID를 출력해주세요.
+select first_name, manager_id
+from employees
+where manager_id not in (145, 146, 147, 148, 149);
+
+-- 급여가 1만원 대인 직원들의 이름과 급여를 출력해주세요.
+select first_name, salary
+from employees
+where salary between 10000 and 19999;
+
+-- 2005년에 입사한 직원의 이름과 입사일을 출력해주세요.
+select first_name, hire_date
+from employees
+where hire_date between '05/01/01' and '05/12/31';
+
+-- 대문자 A로 이름이 시작하는 직원의 사번과 이름을 출력해주세요.
+select employee_id, first_name
+from employees
+where first_name like 'A%';
+
+-- 이름의 두번째 글자가 e인 직원의 사번과 이름을 출력해주세요.
+select employee_id, first_name
+from employees
+where first_name like '_e%';
+
+-- 이름이 대문자 S로 시작하고 소문자 n으로 끝나는 직원의 사번과 이름을 출력해주세요.
+select employee_id, first_name
+from employees
+where first_name like 'S%n';
+
+-- 1월에 입사한 직원의 이름과 입사일을 출력해주세요.
+select first_name, hire_date
+from employees
+where hire_date like '%01%';
