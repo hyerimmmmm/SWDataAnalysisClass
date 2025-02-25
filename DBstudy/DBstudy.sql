@@ -333,6 +333,33 @@ having count(학생ID) >= 3;
 select round(avg(성적), 1) 평균성적, 학생ID
 from 성적표
 group by 학생ID
-having avg(성적) is not null;
+having avg(성적) is not null
+order by 평균성적 desc;
+
+-- 직원ID와 급여를 출력시키되 급여를 기준으로 오름차순 정렬해서 출력시켜주세요.
+select employee_id, salary
+from employees
+order by salary;
+
+-- 부서별 평균 급여를 출력시키되 내림차순으로 정렬해서 출력시켜주세요.
+select department_id, round(avg(salary), 1) 평균급여
+from employees
+group by department_id
+order by 평균급여 desc;
+
+-- 전 직원의 직원ID, 급여, 부서명을 출력해주세요.
+-- cross join
+select e.employee_id, e.salary, d.department_name
+from employees e, departments d -- 테이블에 별칭 지어주기
+where e.department_id = d.department_id;
+
+-- 마케팅 부서에서 몇 명이 근무하는지 출력해주세요.
+select count(employee_id)
+from employees
+where department_id = 20;
+
+
+-- 
+
 
 
