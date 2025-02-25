@@ -400,11 +400,29 @@ where department_id = (select department_id
                         from departments
                         where department_name = 'Marketing');
 
+-- 이름이 Shelli인 직원보다 낮은 급여를 받는 직원의 이름과 급여를 출력해 주세요.
+select e.first_name, e.salary
+from employees e
+where e.salary < (select e.salary
+                  from employees e
+                  where first_name = 'Shelli');
 
+---------------------------------------------------------------
 
+-- Nancy라는 직원보다 더 빨리 입사한 직원의 직원ID와 이름, 입사일을 출력해주세요.
+select e.employee_id, e.first_name, e.hire_date
+from employees e
+where e.hire_date < (select e.hire_date
+                        from employees e
+                        where first_name = 'Nancy');
 
-
-
+-- 전 직원의 평균 급여보다 더 많이 받는 직원의 급여, 이름을 출력해주세요.
+-- 단, 내림차순으로 출력시켜주세요.
+select e.salary, e.first_name
+from employees e
+where salary > (select avg(salary)
+                from employees)
+order by e.salary desc;
 
 
 
