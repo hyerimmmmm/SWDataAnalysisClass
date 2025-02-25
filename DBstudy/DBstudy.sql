@@ -94,6 +94,11 @@ select first_name, salary
 from employees
 where salary <= 5000;
 
+--직원 테이블에서 직원 아이디, 급여, 연봉 출력하기
+-- 단 연봉은 AnnSal로 출력
+select job_id, salary, salary *12 AnnSal
+from employees;
+
 -- 직원 테이블에서 연봉이 50000이하인 직원의 first_name과 연봉 출력
 -- (연봉은 AnnSal 키워드로 출력)
 select first_name, salary *12 as "AnnSal"
@@ -116,9 +121,9 @@ from employees
 where department_id = 90 or salary <= 5000; -- 논리 연산자 or 사용, 하나만 만족하면 됨
 
 -- jod_id가 ‘IT_PROG’와 “FI_ACCOUNT’가 아닌 직원의 이름과 jod_id를 출력 해주세요.
-select first_name, jod_id
+select first_name, job_id
 from employees
-where jod_id != 'IT_PROG' or job_id != 'FI_ACCOUNT';
+where job_id != 'IT_PROG' and job_id != 'FI_ACCOUNT';
 
 -- 부서 id가 100이거나 입사일이 16년02월02일 이후에 입사한 직원의 이름, 입사일을 출력 해주세요.
 -- 날짜 비교
@@ -126,16 +131,47 @@ select * from employees
 where hire_date >= '24/01/01'; -- 비교하려는 데이터의 날짜 형식에 맞춰 문자열로 바꿔서 비교
 
 -- 실습
-select first_name, 
+select first_name, hire_date
 from employees
-where department_id or hire_date >= '16/02/02';
+where department_id = 100 or hire_date >= '16/02/02';
 
 -- 급여가 10000미만이 아닌 직원의 이름과 급여를 출력 해주세요.
 select first_name, salary
 from employees
-where !(salary > 10000);
+where salary >= 10000;
 
--- 부서 id가 100이거나 50인 직원 중에서 연봉이 10000 이상인 직원의 ID, 이름, 연봉을 출력 해주세요.
-select employee_id, first_name, salary * 12
+-- 부서 id가 100이거나 50인 직원 중에서 연봉이 100000 이상인 직원의 ID, 이름, 연봉을 출력 해주세요.
+-- 논리 연산자의 우선순위: and > or
+select employee_id, first_name, salary * 12, department_id
 from employees
-where (department_id = 100 or department_id = 50) or salary * 12 >= 10000;
+where (department_id = 100 or department_id = 50) and salary * 12 >= 100000;
+
+--------------------------------
+-- 0224
+
+-- 열정 페이를 받는 직원의 사번을 출력시켜 주세요.
+-- null 값 비교 연산
+-- is null(null 인 경우) 과 is not null(null 이 아닌 경우)
+select employee_id
+from employees
+where salary is null;
+
+-- 핸드폰 번호가 null인 직원의 사번과 부서 번호를 출력해주세요.
+select employee_id, department_id
+from employees
+where phone_number is null;
+
+-- 커미션 비율(commission_pct)가 null이 아닌 직원의 이름과 커미션 비율을 출력해주세요.
+select first_name, commission_pct
+from employees
+where commission_pct is not null;
+
+-- 부서 ID가 30, 50, 90인 직원의 모든 정보를 출력해주세요.
+select *
+from employees
+where department_id = 30 or department_id = 50 or department_id = 90;
+-- 연산자 in을 사용해서 출력하기
+select *
+from employees
+where department_id in (30, 60, 90);
+
