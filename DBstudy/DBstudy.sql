@@ -359,7 +359,24 @@ from employees
 where department_id = 20;
 
 
--- 
+-- 직원 테이블과 직업 테이블을 inner join을 사용해서 직원ID, 직업ID, 직업 TITLE을 출력해주세요.
+select  e.employee_id, j.job_id, j.job_title
+from employees e, jobs j
+where e.job_id =  j.job_id;
 
+-----------------------------------------------------------------
 
+-- 직원 ID가 100인 직원의 부서 이름을 출력해주세요.
+select d.department_name, e.employee_id
+from departments d, employees e
+where e.department_id = d.department_id and e.employee_id = 100;
 
+-- 각 부서의 부서장(매니저)의 이름과 급여를 출력해주세요.
+select e.first_name, e.salary, d.department_name
+from departments d, employees e
+where e.employee_id = d.manager_id;
+
+-- 부서 테이블, 위치 테이블, 나라 테이블 각 부서의 이름과 도시, 나라 이름을 출력시켜주세요,
+select d.department_name, c.country_name, l.city
+from departments d, locations l, countries c
+where (d.location_id = l.location_id) and (l.country_id = c.country_id);
