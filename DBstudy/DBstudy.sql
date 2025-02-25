@@ -380,3 +380,35 @@ where e.employee_id = d.manager_id;
 select d.department_name, c.country_name, l.city
 from departments d, locations l, countries c
 where (d.location_id = l.location_id) and (l.country_id = c.country_id);
+
+------------------------------------------------------------------
+
+-- 마케팅 부서에서 몇 명이 근무하는지 출력해주세요.(서브 쿼리)
+select count(employee_id)
+from employees
+where department_id = 20;
+
+-- 마케팅 부서의 번호를 출력해주세요.
+select department_id
+from departments
+where department_name = 'Marketing';
+
+-- 두 쿼리문 합치기
+select count(employee_id)
+from employees
+where department_id = (select department_id
+                        from departments
+                        where department_name = 'Marketing');
+
+
+
+
+
+
+
+
+
+
+
+
+
