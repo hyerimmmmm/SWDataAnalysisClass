@@ -39,7 +39,7 @@ alter table 부서정보 drop constraint 직원_부서_FK;
 alter table 직원정보 drop constraint 부서_직원_FK;
 
 -- check 실습 -------------------------------------------------------------------
-alter table 직업정보 add constraint 직원_나이_CHECK check(나이 >= 20);
+alter table 직원정보 add constraint 직원_나이_CHECK check(나이 >= 20);
 
 
 -- 실습 -------------------------------------------------------------------------
@@ -65,6 +65,61 @@ alter table 네이버회원 add constraint 회원_성별_CK check(성별 = '여'
 alter table 네이버회원 add constraint 회원_성별_CK check(성별) in ('여','남');
 alter table 네이버블로그 add constraint 블로그_번호_PK primary key(블로그번호);
 alter table 네이버블로그 add constraint 블로그_회원ID_FK foreign key(ID) references 네이버회원(ID);
+
+
+-- 직원정보 테이블에 있는 정보(직원번호, 이름, 나이, 급여, 부서번호)
+-- 데이터 삽입
+insert into 직원정보
+values (10, '승환', 20, 10000, 100);
+
+insert into 직원정보
+values (20, '미리', 20, 5000, 100);
+
+insert into 직원정보
+values (30, '주연', 20, 0, 100);
+
+insert into 직원정보(직원번호, 이름, 급여)
+values (40, '정훈', 0);
+
+select *
+from 직원정보;
+
+-- 네이버 회원 테이블에 각자 정보를 추가해주세요.
+insert into 네이버회원
+values ('짜장냉면', '승환', '123', sysdate, '남');
+
+
+-- 팀원 정보를 네이버회원 테이블에 추가해주세요.
+insert into 네이버회원
+values ('장기동', '희진', '123', '02/02/02', '여');
+
+insert into 네이버회원
+values ('규르주아', '규민', '123', '97/10/29', '남');
+
+insert into 네이버회원
+values ('불주먹', '정훈', '123', '99/04/22', '남');
+
+insert into 네이버회원
+values ('조기밍', '혜림', '123', '97/10/21', '여');
+
+-- 네이버회원 테이블을 수정해주세요.
+update 네이버회원
+set 이름 = '엽떡불닭'
+where id = '짜장냉면';
+
+update 네이버회원
+set 이름 = '불닭', 비밀번호 = 1234
+where id = '짜장냉면';
+
+-- 데이터를 삭제해보기
+delete from 네이버회원;
+
+delete from 네이버회원
+where id = '짜장냉면';
+
+
+
+
 
 
 
