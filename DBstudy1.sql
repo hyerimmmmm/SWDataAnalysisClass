@@ -42,8 +42,29 @@ alter table 직원정보 drop constraint 부서_직원_FK;
 alter table 직업정보 add constraint 직원_나이_CHECK check(나이 >= 20);
 
 
+-- 실습 -------------------------------------------------------------------------
+create table 네이버회원(
+    ID varchar2(15),
+    이름 varchar2(12) not null,
+    비밀번호 varchar2(16),
+    생년월일 date,
+    성별 varchar2(3)
+);
 
+create table 네이버블로그 (
+    블로그번호 number(3,0),
+    블로그제목 varchar2(100) not null,
+    블로그내용 varchar2(4000),
+    ID varchar2(15)
+);
 
+alter table 네이버회원 add constraint 회원_ID_PK primary key(ID);
+-- 방법1
+alter table 네이버회원 add constraint 회원_성별_CK check(성별 = '여' or 성별 = '남');
+-- 방법2
+alter table 네이버회원 add constraint 회원_성별_CK check(성별) in ('여','남');
+alter table 네이버블로그 add constraint 블로그_번호_PK primary key(블로그번호);
+alter table 네이버블로그 add constraint 블로그_회원ID_FK foreign key(ID) references 네이버회원(ID);
 
 
 
