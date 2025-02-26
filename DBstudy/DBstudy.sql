@@ -438,5 +438,36 @@ from employees e
 where e.salary in (select e.salary
                     from employees e
                     where job_id = 'IT_PROG');
+                    
+----------------------------------------------------------
+
+-- job_id가 ‘IT_PROG’인 직원들의 급여 중에서 최소 급여보다 많이 받는 직원의 이름, 급여를 출력해주세요.
+-- any/some 없이 풀기
+select e.first_name, e.salary
+from employees e
+where e.salary > (select min(salary)
+                    from employees
+                    where job_id = 'IT_PROG');
+                    
+-- any/some 사용해 풀기
+select e.first_name, e.salary
+from employees e
+where e.salary > any (select salary
+                        from employees
+                        where job_id = 'IT_PROG' and salary  is not null);
+                    
+-- all 사용해 풀기
+select e.first_name, e.salary
+from employees e
+where e.salary > all (select salary
+                    from employees
+                    where job_id = 'IT_PROG' and salary is not null);
+
+-- 각 부서별 최고급여를 받는 직원의 이름과 급여를 출력해주세요.
+select first_name, salary, department_id
+from employees
+where (salary, department_id) in (select max(salary), department_id
+                    from employees
+                    group by department_id);
 
 
