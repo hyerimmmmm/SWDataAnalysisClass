@@ -469,5 +469,35 @@ from employees
 where (salary, department_id) in (select max(salary), department_id
                     from employees
                     group by department_id);
+                    
+-- 직원들 중 제일 많이 받는 직원이 속한 부서의 급여와 같은 급여를 받는 직원의 이름, 급여를 출력해주세요.
+-- 1. 직원들 중 급여를 제일 많이 받는 직원의 급여 찾기
+select max(salary)
+from employees;
 
+-- 2. 가장 급여를 많이 받는 직원이 속한 부서 찾기
+select department_id
+from employees
+where salary = (select max(salary)
+                from employees);
+
+-- 3. 가장 급여를 많이 받는 직원이 속한 부서의 직원들의 급여 찾기
+select salary
+from employees
+where department_id =  (select department_id
+                            from employees
+                            where salary = (select max(salary)
+                                            from employees));
+
+-- 4. 최종
+select first_name, salary
+from employees
+where salary in (select salary
+                    from employees
+                    where department_id =  (select department_id
+                                                from employees
+                                                where salary = (select max(salary)
+                                                                from employees)));
+                                                                
+                                                                
 
