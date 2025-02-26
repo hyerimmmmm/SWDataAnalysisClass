@@ -424,9 +424,19 @@ where salary > (select avg(salary)
                 from employees)
 order by e.salary desc;
 
+----------------------------------------------------------
 
+-- job_id가 ‘IT_PROG’인 직원과 같은 급여를 받는 직원의 이름과 급여를 출력해주세요.
+-- 1. job_id가 ‘IT_PROG’인 직원 찾기
+select first_name, salary
+from employees e
+where job_id = 'IT_PROG';
 
-
-
+-- 2. 같은 급여를 받는 직원 찾기
+select e.first_name, e.salary
+from employees e
+where e.salary in (select e.salary
+                    from employees e
+                    where job_id = 'IT_PROG');
 
 
