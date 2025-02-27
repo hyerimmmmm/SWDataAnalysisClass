@@ -484,7 +484,7 @@ where salary = (select max(salary)
 -- 3. 가장 급여를 많이 받는 직원이 속한 부서의 직원들의 급여 찾기
 select salary
 from employees
-where department_id =  (select department_id
+where department_id = (select department_id
                             from employees
                             where salary = (select max(salary)
                                             from employees));

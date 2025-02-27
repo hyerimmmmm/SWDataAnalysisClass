@@ -121,7 +121,12 @@ where id = '짜장냉면';
 -- commit 실습
 commit;
 
+insert into 네이버회원
+values('규민', '짬뽕', '123', sysdate, '남');
 
+-- DCL
+create user dcltest
+identified by 123;
 
 
 
