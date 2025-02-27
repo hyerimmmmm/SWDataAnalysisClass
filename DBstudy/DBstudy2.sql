@@ -117,18 +117,57 @@ from 게시판정렬
 where rownum <= 20;
 
 -- 게시판 번호를 기준으로 21번째 게시물부터 40번째의 게시글 모든 데이터를 출력해주세요
+-- 방법1
 select *
 from  게시판정렬
-where 게시판번호 between 21 and 40;
+where rownum <= 40 and 게시판번호 between 21 and 40;
+
+-- 방법2: rownum을 컬럼으로 출력해 사용
+create view new게시판 as
+select rownum rn, 게시판.* 
+from (select *
+        from 게시판
+        order by 게시판번호) 게시판
+where rownum <= 40;
+
+select *
+from new게시판
+where rn >= 21;
 
 
+create view 게시판번호 as
+select *
+from (select *
+        from 게시판
+        order by 게시판번호)
+where 게시판번호 between 1 and 40;
+
+select *
+from 게시판번호;
 
 
+-- 시퀀스
+create sequence 학생_시퀀스 -- 시퀀스 이름
+increment by 1 -- 증가값
+start with 1 -- 시작값
+maxvalue 100; -- 최대값
 
 
+create table 학생정보(
+    학생번호 number(3,0),
+    name varchar2(100),
+    age number(3,0),
+    grade varchar2(10)
+);
 
+insert into 학생정보
+values(학생_시퀀스.nextval, '승환', 20, 'A');
 
+insert into 학생정보
+values(학생_시퀀스.nextval, '재영', 20, 'A');
 
+select *
+from 학생정보;
 
 
 
