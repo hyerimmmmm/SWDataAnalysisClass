@@ -117,7 +117,9 @@ delete from 네이버회원;
 delete from 네이버회원
 where id = '짜장냉면';
 
-
+-- TCL
+-- commit 실습
+commit;
 
 
 
