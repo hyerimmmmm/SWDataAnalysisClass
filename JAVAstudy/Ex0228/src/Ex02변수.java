@@ -26,6 +26,21 @@ public class Ex02변수 {
 		
 		// 문자열 변수에 값 넣기
 		name = "승환";
+		
+		final int age = 20;
+		
+		// 논리 타입: boolean(true or false 값만 사용 저장 가능)
+		boolean b = false;
+		
+		// 문자 타입: char
+		char c = 'a';
+		System.out.println(c);
+		
+		// 실수 타입: float, double
+		double d = 3.14;
+		float f = 5.67f;
+		
+		
 
 	}
 
