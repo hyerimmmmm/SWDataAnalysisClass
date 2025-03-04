@@ -20,6 +20,8 @@ public class Ex02산술연산자예제 {
 		System.out.println("뺀 결과 값: " + (num1 - num2));
 		System.out.println("곱한 결과 값: " + (num1 * num2));
 		System.out.println("나눈 결과 값: " + ((double)num1 / (double)num2));
+		
+		
 	}
 
 }
