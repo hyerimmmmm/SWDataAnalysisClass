@@ -32,6 +32,11 @@ public class Ex02자료형 {
 		byte test1 = (byte) 12345;
 		System.out.println(test1);
 		
+		// 3-2. 자동 형변환(묵시적 형변환)
+		long test2 = 100;
+		long test3 = test1;
+		
+		
 	}
 	
 }
