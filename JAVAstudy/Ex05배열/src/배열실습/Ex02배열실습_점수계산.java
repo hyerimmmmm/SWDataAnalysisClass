@@ -47,17 +47,6 @@ public class Ex02배열실습_점수계산 {
 		System.out.println("총합 점수: " + sum);
 		System.out.println("평균 점수: " + avg);
 
-		// 배열 값 거꾸로출력
-		int[] answer = new int[array.length];
-		int j = 0;
-		for (int i = array.length - 1; i >= 0; i--) {
-			
-			answer[i] = array[j];
-			System.out.println("i = " + i);
-			System.out.println("j = " + j);
-			j++;
-		}
-		System.out.println(Arrays.toString(answer));
 
 	}
 }
