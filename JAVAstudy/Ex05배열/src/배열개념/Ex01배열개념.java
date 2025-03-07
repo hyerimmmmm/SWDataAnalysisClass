@@ -19,13 +19,12 @@ public class Ex01배열개념 {
 		int[] numList2 = {1, 2, 3, 4};
 		
 		// 배열 데이터 꺼내기
-		//System.out.println(numList1[0]);
+		// System.out.println(numList1[0]);
 		
 		// 배열 데이터 변경
 		numList1[0] = 1;
 		
 		// for문과 배열 섞어서 사용해보기
-		
 		for (int i = 0; i < numList1.length; i++) {
 			System.out.println(numList1[i]);
 		}
