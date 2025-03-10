@@ -13,12 +13,14 @@ public class Ex02이차원배열예제 {
 		//2. array의 값을 이중 for 문을 이용해서 할당
 		for (int i = 0; i < array.length; i++) {
 			for (int j = 0; j < array[i].length; j++) {
-				array[i][j] = data;
-				data++;
+				array[i][j] = data++;
+				System.out.print(array[i][j] + "\t"); // \t:tab 단위로 띄어쓰
 			}
+			System.out.println();
 		}
 		
 		System.out.println(Arrays.deepToString(array));
+
 
 	}
 
