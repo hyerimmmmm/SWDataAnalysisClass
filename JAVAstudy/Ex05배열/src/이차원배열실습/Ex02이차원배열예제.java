@@ -1,5 +1,7 @@
 package 이차원배열실습;
 
+import java.util.Arrays;
+
 public class Ex02이차원배열예제 {
 
 	public static void main(String[] args) {
@@ -15,6 +17,8 @@ public class Ex02이차원배열예제 {
 				data++;
 			}
 		}
+		
+		System.out.println(Arrays.deepToString(array));
 
 	}
 
