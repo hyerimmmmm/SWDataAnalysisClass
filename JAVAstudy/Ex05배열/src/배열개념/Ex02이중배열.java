@@ -26,10 +26,12 @@ public class Ex02이중배열 {
 		
 		System.out.println(Arrays.deepToString(array2));
 		
+		// 4, 8, 12 꺼내보기
 		System.out.println(array2[0][3]);
 		System.out.println(array2[1][3]);
 		System.out.println(array2[2][3]);
 		
+		// 1, 2, 3, 4 꺼내보기
 		System.out.println(array2[0][0]);
 		System.out.println(array2[0][1]);
 		System.out.println(array2[0][2]);
