@@ -14,12 +14,14 @@ public class Ex03예제 {
 		int[][] array = new int[n][n];
 		int data = 1;
 		
+		// 저장(열 고정, 행 반복)
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < n; j++) {
 				array[j][i] = data++;
 			}
 		}
 		
+		// 출력(행 고정, 열 반복)
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < n; j++) {
 				System.out.print(array[i][j] + "\t");
