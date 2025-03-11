@@ -4,8 +4,9 @@ public class Ex01메소드개요 {
 	public static void main(String[] args) {
 		
 		// 사용은 main 메소드 안에서
-		// 매개변수가 없는 메소드 사
+		// 매개변수가 없는 메소드 사용
 		introduce();
+		introduce("안녕하세요~");
 		
 		// 매개변수가 있는 메소드 사용
 		// 정의해준 메소드와 똑같이 매개변수의 개수와 순서, 자료형을 맞춰야 함
@@ -29,6 +30,10 @@ public class Ex01메소드개요 {
 		System.out.println("이름: 미리");
 		System.out.println("나이: 20");
 		System.out.println("취미: 눕기");
+	}
+	
+	public static void introduce(String hello) {
+		System.out.println(hello);
 	}
 	
 	// 메소드 생성(매개변수 O, 반환값 X)
