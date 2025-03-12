@@ -5,7 +5,7 @@ public class StudentMain {
 	public static void main(String[] args) {
 		
 		// Studentnt 객체 생성
-		Student stu1 = new Student(); // new Student()는 객체를 생성하는 순간에 실행되는 메소
+		Student stu1 = new Student(); // new Student()는 객체를 생성하는 순간에 실행되는 메소드
 		
 		stu1.setName("이도연");
 		stu1.setNumber("20241111");
