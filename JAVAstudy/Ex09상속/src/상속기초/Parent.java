@@ -15,6 +15,4 @@ public class Parent {
 		System.out.println("맛있는 비빔밥을 만든다");
 	}
 	
-	
-	
 }
