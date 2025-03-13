@@ -1,25 +1,17 @@
 package 추상클래스;
 
-public class RegularEmployee {
+public class RegularEmployee extends Employee {
 	
-	private String empno; // 사번
-	private String name;
-	private int pay;
 	private int bonus;
 	
 	// 생성자
 	public RegularEmployee(String empno, String name, int pay, int bonus) {
-		this.empno = empno;
-		this.name = name;
-		this.pay = pay;
+		super(empno, name, pay); // 부모클래스의 생성자에게 접근
 		this.bonus = bonus;
 	}
 	// 월급계산
 	public int getMoneyPay() {
 		return (pay + bonus) / 12;
 	}
-	// 출력
-	public String print() {
-		return empno + " : " + name + " : " + pay;
-	}
+	
 }
