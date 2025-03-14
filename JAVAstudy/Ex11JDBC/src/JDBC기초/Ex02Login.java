@@ -56,9 +56,9 @@ public class Ex02Login {
 			// : cursor가 가리키고 있는 데이터만 가져올 수 있음
 			rs = psmt.executeQuery();
 
-			// rs.next(); : 커서를 한 행 밑으로 내리는 작업, boolea 타입 반환
+			// rs.next(); : 커서를 한 행 밑으로 내리는 작업, boolean 타입 반환
 			if (rs.next() == true) { // true를 반환한다는 것은 로그인에 성공했다는 뜻
-				// DB에 있는 데이터 변수에 담아서 출
+				// DB에 있는 데이터 변수에 담아서 출력
 				String userName = rs.getString("name");
 				System.out.println(userName + "님 환영합니다");
 			} else {

@@ -84,7 +84,7 @@ public class Ex01Join {
 
 			// 4. SQL문 실행
 			// executeUpdate: insert, update, delete 에만 사용
-			int row = psmt.executeUpdate();
+			int row = psmt.executeUpdate(); // 추가된 행의 개수, 업데이트된 행의 개수, 삭제된 행의 개수를 반환
 
 			// 5. 결과를 이용한 작업 처리
 			if (row > 0) {
