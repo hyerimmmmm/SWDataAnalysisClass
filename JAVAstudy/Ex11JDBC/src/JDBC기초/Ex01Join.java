@@ -10,8 +10,8 @@ public class Ex01Join {
 
 	public static void main(String[] args) {
 
-		PreparedStatement psmt = null;
 		Connection conn = null;
+		PreparedStatement psmt = null;
 
 		Scanner sc = new Scanner(System.in);
 		// 사용자 입출력 구간
@@ -38,7 +38,7 @@ public class Ex01Join {
 			// jar 파일이란: 클래스 파일들을 여러개 모아놓은 압축파일
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			// 2. 데이터베이스 연결
+			// 2. 데이터베이스 연결(일종의 로그인)
 			// 준비물 3가지
 			// 1) 연결 경로
 			String url = "jdbc:oracle:thin:@localhost:1521:xe";

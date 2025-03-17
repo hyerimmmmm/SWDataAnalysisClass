@@ -15,7 +15,7 @@ public class Ex05SelectAll {
 		PreparedStatement psmt = null;
 		ResultSet rs = null;
 		
-		System.out.println("========= 회원 정보 =========");
+		System.out.println("===================== 회원 정보 =====================");
 		System.out.println("ID\t이름\t나이\t점수");
 		
 		try {
