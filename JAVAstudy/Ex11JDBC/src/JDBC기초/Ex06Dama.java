@@ -87,7 +87,7 @@ public class Ex06Dama {
 					try {
 						conn = DriverManager.getConnection(url, user, pw);
 						sql = "select * from DAMA";
-						
+
 						psmt = conn.prepareStatement(sql);
 
 						rs = psmt.executeQuery();
@@ -107,33 +107,25 @@ public class Ex06Dama {
 					// 다마고치의 이름과 어떤 음식을 줄 지 작성
 					try {
 						conn = DriverManager.getConnection(url, user, pw);
-						
+
 						System.out.print("밥을 주려는 다마고치의 이름을 입력해주세요. >> ");
 						String eatName = sc.next();
 						System.out.print("다마고치가 좋아하는 음식을 입력해주세요. >> ");
 						String favoriteFood = sc.next();
-						
-						sql = "select * from DAMA where NAME = ? and FOOD = ?";
-						
+
+						sql = "update DAMA set HUNGRY = HUNGRY - 5 where NAME = ?";
+
 						psmt = conn.prepareStatement(sql);
 						psmt.setString(1, eatName);
-						psmt.setString(2, favoriteFood);
-						
-						rs = psmt.executeQuery();
-						
-						if (rs.next()) {
-							System.out.println("밥을 먹이는데 성공했습니다.");
-							sql = "update DAMA set HUNGRY = HUNGRY - 5 where NAME = ?";
-							psmt = conn.prepareStatement(sql);
-							psmt.setString(1, eatName);
-							
-							ResultSet rs2 = psmt.executeQuery();
 
-							System.out.println("현재 배고픔은 " + rs2.getInt("HUNGRY") + "입니다.");
+						int row = psmt.executeUpdate();
+
+						if (row > 0) {
+							System.out.println(eatName + "에게 밥을 먹이는데 성공했습니다.");
 						} else {
-							System.out.println("밥을 먹이는데 실패했습니다.");
+							System.out.println("다마고치를 찾지 못했습니다.");
 						}
-						
+
 					} catch (SQLException e) {
 						e.printStackTrace();
 					}
