@@ -10,6 +10,7 @@ public class MemberDTO {
 	private String name;
 	private int age;
 	
+	// 회원가입을 위한 생성자 메소드
 	public MemberDTO(String id, String password, String name, int age) {
 		this.id = id;
 		this.password = password;
@@ -17,6 +18,13 @@ public class MemberDTO {
 		this.age = age;
 	}
 	
+	// 회원 정보 조회를 위한 생성자 메소드
+	public MemberDTO(String id, String name, int age) {
+		this.id = id;
+		this.name = name;
+		this.age = age;
+	}
+
 	// getter 메소드
 	// -> private 데이터들을 다른 클래스에서 조회가능하도록 getter 메소드 생성
 	public String getId() {

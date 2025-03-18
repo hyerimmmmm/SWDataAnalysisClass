@@ -1,8 +1,10 @@
 package View;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import Controller.Controller;
+import Model.MemberDTO;
 
 public class Main {
 
@@ -14,7 +16,8 @@ public class Main {
 		// 컨트롤러 객체
 		Controller control = new Controller();
 		
-		System.out.print("메뉴 선택 [1]회원가입 ");
+		System.out.println("메뉴 선택\t[1]회원가입\t[2]전체회원조회");
+		System.out.println(">> ");
 		int input = sc.nextInt();
 		
 		if (input == 1) {
@@ -39,6 +42,16 @@ public class Main {
 				System.out.println("회원가입 성공");
 			} else {
 				System.out.println("회원가입 실패");
+			}
+		} else if (input == 2) {
+			System.out.println("=============== 전체회원조회 ===============");
+			System.out.println("id\t이름\t나이\t");
+			
+			ArrayList<MemberDTO> result = control.Con_list();
+			for (int i = 0; i < result.size(); i++) {
+				System.out.print(result.get(i).getId() + "\t");
+				System.out.print(result.get(i).getName() + "\t");
+				System.out.println(result.get(i).getAge());
 			}
 		}
 

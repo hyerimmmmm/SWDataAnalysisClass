@@ -1,5 +1,7 @@
 package Controller;
 
+import java.util.ArrayList;
+
 import Model.MemberDAO;
 import Model.MemberDTO;
 
@@ -10,7 +12,8 @@ public class Controller {
 	// dao: db 연결과 쿼리문 실행 메소드
 	MemberDAO dao = new MemberDAO();
 	
-	int result = 0;
+	int result = 0; // join의 return 데이터
+	ArrayList<MemberDTO> resultList = new ArrayList<>(); // list()의 return 데이터
 	
 	// view에게 전달받음 데이터를 Model에 전달하면서 기능을 수행하게끔 명령
 	public int Con_join(String id, String password, String name, int age) {
@@ -20,6 +23,12 @@ public class Controller {
 		
 		return result;
 		
+	}
+	
+	public ArrayList<MemberDTO> Con_list() {
+		resultList = dao.list();
+		
+		return resultList;
 	}
 	
 }
