@@ -128,4 +128,26 @@ public class MemberDAO {
 		
 		return result;
 	}
+	
+	public int delete(MemberDTO dto) {
+		
+		getConn();
+		
+		String sql = "delete from DATADESIGNMEMBE where id = ? and pw = ?";
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, dto.getId());
+			psmt.setString(2, dto.getPassword());
+			
+			result = psmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		
+		return result;
+	}
 }

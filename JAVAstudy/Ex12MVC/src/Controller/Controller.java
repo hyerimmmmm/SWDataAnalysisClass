@@ -44,4 +44,14 @@ public class Controller {
 		return result;
 	}
 	
+	public int Con_delete(String id, String password) {
+		MemberDTO dto = new MemberDTO();
+		dto.setId(id);
+		dto.setPassword(password);
+		
+		result = dao.delete(dto);
+		
+		return result;
+	}
+	
 }
