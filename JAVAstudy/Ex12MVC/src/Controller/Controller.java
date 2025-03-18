@@ -31,4 +31,17 @@ public class Controller {
 		return resultList;
 	}
 	
+	public int Con_update(String id, String password, String name) {
+		// Con_join 처럼 생성자 메소드로 데이터를 담아도 되지만
+		// setter 메소드를 사용해서 정보를 채워보기
+		MemberDTO dto = new MemberDTO();
+		dto.setId(id);
+		dto.setPassword(password);
+		dto.setName(name);
+		
+		result = dao.update(dto);
+		
+		return result;
+	}
+	
 }

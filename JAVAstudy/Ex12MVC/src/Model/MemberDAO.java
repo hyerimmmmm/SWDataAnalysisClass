@@ -12,7 +12,7 @@ public class MemberDAO {
 	// DAO
 	// -> Database Access Object: 데이터베이스에 접근하기 위한 객체
 	
-	// 여러 메소드에서 재사용하기 위해 전역 변수로 선
+	// 여러 메소드에서 재사용하기 위해 전역 변수로 선언
 	Connection conn = null; // DB연결
 	PreparedStatement psmt = null; // sql구문 세팅/실행
 	ResultSet rs = null; // return 되는 테이블 형태 결과를 저장
@@ -107,4 +107,25 @@ public class MemberDAO {
 		return resultList;
 	}
 	
+	public int update(MemberDTO dto) {
+		getConn();
+		
+		String sql = "update DATADESIGNMEMBE set NAME = ? where ID = ? and pw = ?";
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, dto.getName());
+			psmt.setString(2, dto.getId());
+			psmt.setString(3, dto.getPassword());
+			
+			result = psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+	
+		
+		return result;
+	}
 }

@@ -16,7 +16,7 @@ public class Main {
 		// 컨트롤러 객체
 		Controller control = new Controller();
 		
-		System.out.println("메뉴 선택\t[1]회원가입\t[2]전체회원조회");
+		System.out.println("메뉴 선택\t[1]회원가입\t[2]전체회원조회\t[3]회원정보수정");
 		System.out.println(">> ");
 		int input = sc.nextInt();
 		
@@ -49,9 +49,28 @@ public class Main {
 			
 			ArrayList<MemberDTO> result = control.Con_list();
 			for (int i = 0; i < result.size(); i++) {
+				// result = MemberDTO 객체 하나하나를 데이터로 가지고 있는 ArrayList 배열
+				// get(i) = result에서 i번째에 있는 MemberDTO 형태의 객체를 가져와라
+				// getId = MemberDTO 객체 안에 있는 데이터들을 private로 막았기 때문에 getter 메소드로 가져오
 				System.out.print(result.get(i).getId() + "\t");
 				System.out.print(result.get(i).getName() + "\t");
 				System.out.println(result.get(i).getAge());
+			}
+		} else if (input == 3) {
+			System.out.println("=============== 회원정보수정 ===============");
+			System.out.print("ID를 입력해주세요. >> ");
+			String id = sc.next();
+			System.out.print("Password를 입력해주세요. >> ");
+			String password = sc.next();
+			System.out.print("변경할 이름을 입력해주세요. >> ");
+			String name = sc.next();
+			
+			int result = control.Con_update(id, password, name);
+			
+			if (result > 0) {
+				System.out.println("정보 수정 성공");
+			} else {
+				System.out.println("정보 수정 실패");
 			}
 		}
 
