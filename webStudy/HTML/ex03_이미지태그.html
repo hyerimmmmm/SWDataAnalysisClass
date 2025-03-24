@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!--
+    img 태그: 웹페이지에 이미지를 띄울 수 있느 태그
+    끝태그를 사용하지 않음 / 필요한 이미지 경로, 크기 등 설정은 속성값으로 지정
+    src: 이미지의 경로(절대/상대)
+        절대경로: 외부 이미지나 문서에 연결할 때(주로 링크 형태)
+        상대경로: 특정 위치(나, 현재 파일)를 기준으로 파일을 찾는 경로(내부 자료를 연결할 때 사용)
+    alt: 이미지가 잘못되었을 경우의 대체 설명
+    -->
+
+    <!-- 절대경로 -->
+    <img src="https://t1.kakaocdn.net/thumb/R1920x0.fwebp.q100/?fname=https%3A%2F%2Ft1.kakaocdn.net%2Fkakaocorp%2Fkakaocorp%2Fadmin%2Fnews%2F2731c5bc018f00001.jpeg" alt="라이언" width = 500>
+
+    <!-- 상대경로 -->
+    <!-- ./ : 현재 파일과 동등한 위치에 있는 파일 탐색 -->
+    <!-- ../ : 현재 파일보다 한 단계 상위에 있는 파일 탐색 -->
+    <img src="../images/image01.jpeg" alt="image01" width = 500>
+
+</body>
+</html>
