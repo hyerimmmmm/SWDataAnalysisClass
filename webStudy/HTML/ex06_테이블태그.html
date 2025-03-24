@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- 웹페이지에 표 띄우기 -->
+    <!--
+    - table:표를 만들 수 있는 공간을 생성하는 태그
+    - tr: table row, 표 안에서 가로 한 줄을 만드는 태그
+    - td: table data, 한 줄 안에서 하나의 데이터를 넣는 태그
+    - th: table header, 제목 데이터를 표현하고 싶을 때
+    -->
+
+    <table border="1px solid black">
+        <tr>
+            <th>번호</th>
+            <th>이름</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>미리</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>재영</td>
+        </tr>
+    </table>
+
+    <!-- 표 병합 기능 -->
+    <!--
+    - colspan: 셀을 가로병합
+    - rowsapn: 셀을 세로병합
+    - 두 속성의 값에는 병합하고 싶은 셀의 갯수를 입력
+      => 병합 여부에 따라서 각 tr 안의 td 갯수가 달라질 수 있음
+    -->
+    <table border="1px solid black">
+        <tr align="center">
+            <th>메뉴</th>
+            <th>가격</th>
+            <th>시즌</th>
+        </tr>
+        <tr align="center">
+            <td>아메리카노</td>
+            <td>3500</td>
+            <td rowspan="2">사계절</td>
+        </tr>
+        <tr align="center">
+            <td>카페라떼</td>
+            <td>4000</td>
+        </tr>
+        <tr align="center">
+            <td>딸기라떼</td>
+            <td>4500</td>
+            <td rowspan="2">봄</td>
+        </tr>
+        <tr align="center">
+            <td>딸기에이드</td>
+            <td>4500</td>
+        </tr>
+        <tr align="center">
+            <td colspan="2">여름메뉴커밍쑨</td>
+            <td>여름</td>
+        </tr>
+    </table>
+
+</body>
+</html>
