@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!--
+    form 태그: 웹페이지에 입력받을 수 있는 공간을 만들어주는 태그
+    action 속성: form 안에서 입력한 데이터의 전달 위치 지정, 위치가 미정일 때는 # 입력
+    method 속성: get과 post
+        get: 기본값, 사용자가 입력한 내용을 쿼리스트링 안에 담아서 전송(단점: 데이터가 전부 노출됨)
+        post: 데이터가 노출되지 않도록 전송
+    -->
+    <form action="#" method="get">
+        <!--
+        input 태그: 사용자에게 입력을 받을 수 있는 태그 -> type 속성에 따라서 다양한 것을 입력받을 수 있음
+                   -> type 종류: password(비밀번호), submit(제출), reset(초기화)
+            name: input 태그 끼리의 구분값
+            maxlength: 글자 수 제한
+            placeholder: 미리보기 텍스트, 사용자가 입력하면 사라짐
+        -->
+        <span>ID</span>
+        <input type="text" name="id" maxlength="5" placeholder="ID를 입력하세요.">
+
+        <br>
+
+        <span>PW</span>
+        <input type="password" name="pw" placeholder="PW를 입력하세요.">
+
+        <br>
+
+        <input type="color" name="color">
+        <input type="file" name="file">
+        <input type="date" name="date">
+        
+        <br>
+
+        <!-- checkbox 속성: 여러가지 옵션을 선택할 수 있음 -->
+        <!-- type = checkbox에서는 name이 버튼들을 묶기 위한 역할이고, 실질적인 값은 value에 담음 -->
+        <!-- 각각의 선택지는 같은 name 속성으로 묶고 각 선택지를 구분하기 위해 value 속성값을 설정 -->
+        <span>밥</span><input type="checkbox" name="eat" value="rice">
+        <span>빵</span><input type="checkbox" name="eat" value="bread">
+        <span>면</span><input type="checkbox" name="eat" value="noodle">
+        
+        <br>
+        
+        <!-- radio 속성: 여러가지 옵션 중 한 가지만 선택할 수 있음 -->
+        <!-- type = radio에서는 name이 버튼들을 묶기 위한 역할이고, 실질적인 값은 value에 담음 -->
+        <!-- 각각의 선택지는 같은 name 속성으로 묶고 각 선택지를 구분하기 위해 value 속성값을 설정 -->
+        <span>남자</span><input type="radio" name="gender" value="man">
+        <span>여자</span><input type="radio" name="gender" value="woman">
+
+        <br>
+        
+        <span>안경 착용</span><input type="radio" name="glasses" value="on">
+        <span>안경 미착용</span><input type="radio" name="glasses" value="off">
+
+        <br>
+
+        <select name="home">
+            <option value="">거주지</option>
+            <option value="seoul">서울</option>
+            <option value="gyeonggi">경기</option>
+            <option value="else">그 외</option>
+        </select>
+
+        <br>
+
+        <input type="submit" name="submit">
+        <input type="reset" name="reset">
+    </form>
+
+
+
+
+
+</body>
+
+</html>
