@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!--
+    html 문서의 스타일 설정하는 법
+       - head 태그 안에서 style 태그를 열어서, 그 안쪽에 작성
+       - styleㄴ 태그 안쪽 = css 언어를 작성할 수 있는 공간
+    -->
+    <style>
+        /* 
+        기본 구조
+        선택자 {
+            속성: 값;
+        }
+        */
+        h1 {
+            /* color: 글씨 색 변경 */
+            color: indianred;
+            
+            /* background-color: 요소의 배경색 */
+            background-color: lightpink;
+        }
+
+        h2 {
+            font-size: 50px;
+            font-style: italic;
+            /* font-weight는 bold, normal, lighter, 100-900 숫자로 지정 가능 */
+            font-weight: normal;
+            /* font-family는 글꼴의 집합, 비슷한 폰트 사용하기, 1순위가 없으면 2순위, 2순위가 없으면 3순위 사용 */
+            font-family: '궁서체', '궁서', '굴림';
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS 공부 시작</h1>
+    <h2>집에 가고 싶다...</h2>
+</body>
+</html>
