@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex04_조합선택자</title>
+
+    <style>
+        /* 조합 선택자 */
+        /* 계층 선택자
+        /* 자손 선택자 */
+        /* 공백 사용 */
+        body p {
+            color: red;
+        }
+
+        /* 자식 선택자 */
+        /* > 사용 */
+        ul>li {
+            color: blue;
+        }
+
+        /* 인접 형제 선택자(근접후행선택자) */
+        /* + 사용 */
+        .one+li {
+            background-color: lemonchiffon;
+        }
+
+        p+p {
+            background-color: springgreen;
+        }
+
+        /* 일반 형제 선택자(후행선택자) */
+        /*  ~ 사용 */
+        p~p {
+            font-family: '궁서체';
+        }
+
+        .one~li {
+            font-weight: 800;
+        }
+
+        /* 반응 선택자 */
+        h1:hover {
+            color: cadetblue;
+        }
+
+        h1:active {
+            color: coral;
+        }
+
+        /* 명시도를 계산하기 힘든 경우 */
+        #only {
+            color: cornflowerblue;
+        }
+
+        h1 {
+            color: darkblue !important;
+        }
+
+
+    </style>
+</head>
+
+<body>
+
+    <h1 id = "only">건강하게 살기~</h1>
+
+    <!-- 1번 p태그의 동생은 ul -->
+    <p>1번</p>
+    <ul>
+        <li class="one">2번</li>
+        <li>3번</li>
+        <li>4번</li>
+        <p>??</p>
+    </ul>
+    <!-- 5번 p태그의 동생은 6번 p태그 -->
+    <p>5번</p>
+    <p>6번</p>
+
+</body>
+
+</html>
