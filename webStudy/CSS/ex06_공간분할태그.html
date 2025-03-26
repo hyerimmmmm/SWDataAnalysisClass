@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex06_공간분할태그</title>
+
+    <style>
+
+        #container {
+            background-color: antiquewhite;
+            width: 300px;
+            height: 300px;
+        }
+
+        #item1 {
+            background-color: cadetblue;
+            width: 100px;
+            height: 100px;
+            /* visibility: hidden; */
+            /* 존재는 하지만 눈에 보이지 않게하는 역할 */
+            /* 요소가 보이지 않지만 자리는 차지해야 하는 경우 사용 */
+            visibility: hidden;
+        }
+
+        #item2 {
+            background-color: coral;
+            width: 80px;
+            height: 80px;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div id="container">
+        <span>여기는?</span>
+        <div id="item1">
+            item1
+            <div id="innerItem">
+                item 안에 또 div
+            </div>
+        </div>
+        <span>요기는?</span>
+        <div id="item2">
+            item2
+        </div>
+    </div>
+
+</body>
+</html>
