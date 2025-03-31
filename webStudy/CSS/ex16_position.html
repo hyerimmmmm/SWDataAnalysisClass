@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex16_position</title>
+
+    <style>
+        div>div {
+            width: 100px;
+            height: 100px;
+            background-color: cadetblue;
+            border: 1px solid black;
+            box-sizing: border-box;
+        }
+
+        #static {
+            position: static;
+        }
+
+        #relative {
+            position: relative;
+            top: 100px;
+            left: 100px;
+        }
+
+        #absolute {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+
+        #parents {
+            position: relative;
+        }
+
+        #fixed {
+            position: fixed;
+            top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <span>body 태그의 안쪽</span>
+    <div id = parents>
+        <span>parents 안쪽</span>
+        <div id = "static">static</div>
+        <div id = "relative">relative</div>
+        <div id = "absolute">absolute</div>
+        <div id = "fixed">fixed</div>
+    </div>
+</body>
+</html>

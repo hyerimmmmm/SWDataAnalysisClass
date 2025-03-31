@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex17_position실습</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+        }
+
+        .box1 {
+            background-color: cadetblue;
+        }
+
+        .box2 {
+            background-color: rgb(120, 174, 176);
+            position: relative;
+            left: 100px;
+        }
+
+        .box3 {
+            background-color: rgb(145, 183, 185);
+            position: relative;
+            left: 200px;
+        }
+
+        .box4 {
+            background-color: rgb(180, 211, 212);
+            position: relative;
+            left: 300px;
+        }
+
+        .box5 {
+            background-color: cadetblue;
+            position: absolute;
+            top: 400px;
+        }
+
+        .box6 {
+            background-color: rgb(120, 174, 176);
+            position: absolute;
+            top: 500px;
+            left: 100px;
+        }
+
+        .box7 {
+            background-color: rgb(145, 183, 185);
+            position: absolute;
+            top: 600px;
+            left: 200px;
+        }
+
+        .box8 {
+            background-color: rgb(180, 211, 212);
+            position: absolute;
+            top: 700px;
+            left: 300px;
+        }
+
+        .box9 {
+            background-color: cadetblue;
+            position: fixed;
+            top: 200px;
+        }
+
+        .box10 {
+            background-color: rgb(120, 174, 176);
+            position: fixed;
+            top: 300px;
+            left: 100px;
+        }
+
+        .box11 {
+            background-color: rgb(145, 183, 185);
+            position: fixed;
+            top: 400px;
+            left: 200px;
+        }
+
+        .box12 {
+            background-color: rgb(180, 211, 212);
+            position: fixed;
+            top: 500px;
+            left: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box box1">relative</div>
+    <div class="box box2">relative</div>
+    <div class="box box3">relative</div>
+    <div class="box box4">relative</div>
+    
+    <div class="box box5">absolute</div>
+    <div class="box box6">absolute</div>
+    <div class="box box7">absolute</div>
+    <div class="box box8">absolute</div>
+
+    <div class="box box9">fixed</div>
+    <div class="box box10">fixed</div>
+    <div class="box box11">fixed</div>
+    <div class="box box12">fixed</div>
+</body>
+
+</html>
