@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex19_flex</title>
+
+    <style>
+        .container {
+            height: 500px;
+            background-color: beige;
+
+            /* flex 설정 */
+            display: flex;
+
+            /* 배치 방향 설정 */
+            flex-direction: row;
+
+            /* 메인축 정렬 */
+            justify-content: center;
+
+            /* 서브축 정렬 */
+            align-items: center;
+
+            /* 줄넘김 처리 */
+            flex-wrap: wrap;
+        }
+
+        .item {
+            width: 100px;
+            height: 100px;
+            background-color: tomato;
+            border: 1px solid black;
+
+            /* 아이템의 기본 크기 설정 */
+            flex-basis: 15%;
+        }
+
+        .center {
+            flex-basis: 70%;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">1</div>
+        <div class="item center">2</div>
+        <div class="item">3</div>
+    </div>
+</body>
+</html>
