@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex20_flex실습</title>
+
+    <style>
+        * {
+            margin: 0;
+        }
+        .container {
+            height: 100px;
+            background-color: rgb(255, 133, 243);
+
+            display: flex;
+            justify-content: center;
+            color: white;
+            flex-wrap: wrap;
+        }
+
+        /* .container > div {
+            border: 1px solid black;
+        } */
+
+        .item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .item1 {
+            flex-basis: 15%;
+
+            display: flex;
+        }
+        .item2 {
+            flex-basis: 70%;
+        }
+        .item3 {
+            flex-basis: 15%;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+            margin: 10px;
+            font-weight: 700;
+        }
+
+        div > img {
+            width: 80%;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item1 item">
+            <img
+            src="https://www.zigzag.kr/resources/arm64/20250324-1801-f497bf5ef3/_next/static/images/zigzag-bi-a7f7909846c6e1330a7e776a24c6435d.png" alt="">
+        </div>
+        <div class="item2 item">
+            <a href="#">게시판</a>
+            <a href="#">소식</a>
+            <a href="#">문의하기</a>
+        </div>
+        <div class="item3 item">
+            <a href="#">로그인</a>
+            <a href="#">회원가입</a>
+        </div>
+    </div>
+</body>
+</html>
