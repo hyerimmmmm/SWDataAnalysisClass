@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex01_입출력</title>
+</head>
+<body>
+    <h1>즐거운 자바 스크립트</h1>
+
+    <script>
+        // HTML 파일 안에 자바 스크립트를 사용하기 위해서는 script 태그를 선언(위치: body 끝 태그 위)
+
+        // 출력문
+        // 1. document.write();
+        // -> 문서(HTML)에 뭔가 직접 작성 할 때 사용
+        document.write("오랜만이에요~");
+        document.write("<h2>이렇게!<h2/>");
+
+        // 2. alert()
+        // -> 알림 팝업창을 실행시키는 실행문
+        // 주의점: 무조건 웹페이지가 시작될 때 가장 먼저 실행됨
+        // alert("가입되었습니다");
+
+        // 3. console.log();
+        // -> 콘솔창에 로그를 남길때 사용
+        // 콘솔 위치: F12 눌렀을 때 나오는 개발자 도구의 console
+        console.log("확인완료!");
+
+
+        // 입력문
+        // 1. confirm();
+        // -> 사용자에게 확인 혹은 취소를 입력받음
+        // 리턴 타입: boolean
+        console.log(confirm("가입하시겠습니까?"));
+
+        // 2. prompt();
+        // -> 사용자에게 직접 키보드 입력값을 받음
+        // -> 사용자의 입력값을 string 형태로 리턴
+        console.log(prompt("이름을 입력해주세요"));
+    </script>
+</body>
+</html>

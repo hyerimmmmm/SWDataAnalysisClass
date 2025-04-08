@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex05_연산자실습</title>
+</head>
+<body>
+    
+    <script>
+        // 자바 스크립트의 연산자는 자바와 거의 동일
+        // 다른점: 동등연산자와 일치연산자
+
+        // 동등연산자: ==, !=
+        // -> 데이터의 값만 비교(자료형은 비교하지 않음)
+        // 일치연산자: ===, !==
+        // -> 데이터의 값과 자료형을 둘 다 비교
+
+        // 나누기 연산자도 조금 다름
+        // 자바) /(몫-정수로 표현), %(나머지)
+        // 자바스크립트) /(나누기-실수까지 표현), %(나머지)
+
+        // 예제
+        let num = 312;
+        let result = num - (num % 100);
+        
+
+        console.log("100의 자리 이하를 버린 결과 >> " + result);
+        
+
+    </script>
+</body>
+</html>

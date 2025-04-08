@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex02_변수</title>
+</head>
+<body>
+    
+    <script>
+        // 변수: 데이터를 담을 수 있는 공간
+        // 자바에서의 변수
+        // -> 자료형 변수명 = 값;
+        // 자바 스크립트에서의 변수
+        // -> 변수키워드 변수명 = 값;
+
+        // 자료형
+        // - stirng, number, boolean, undefined, null
+
+        let str = "miri";
+        let num1 = 10;
+        let num2 = 3.14;
+        let bool = true;
+
+        // 1. string: 문자 형태
+        // -> 큰 따옴표와 작은 따옴표, 백틱 셋 다 사용가능
+        let str1 = "미리";
+        console.log("str1은", str1);
+
+        // 2. number: 숫자 형태
+        // ->  콘솔에 찍었을 때 색상이 다름
+        let num3 = 3;
+        let num4 = 3.14;
+        console.log("num3은", num3);
+        console.log("num4는", num4);
+
+        // 3. boolean: 참 혹은 거짓
+        let check = true;
+
+        // 4. null과 undefined: 각각 비어있다 / 정의가 되어있지 않다
+        // -> 공통의미: 값이 비어있다
+        // -> 다른점:  null은 "비어있음"
+        //           undefined은 타입도 정의되지 않았음
+        let empty = null; // null
+        let data; // undefined
+        
+        // 자료형을 구별하는 방법
+        // 1. console 창의 색깔
+        // 2. typeof()
+        console.log(typeof(num4));
+        console.log(typeof(str1));
+    </script>
+</body>
+</html>
