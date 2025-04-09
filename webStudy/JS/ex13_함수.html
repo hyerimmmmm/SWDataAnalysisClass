@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex13_함수</title>
+</head>
+<body>
+    <script>
+        // 함수: 특정 목적의 작업을 수행하기 위해 독립적으로 설계된 블록
+        // -> 내가 편하게 사용하기 위해 만드는 기능들
+        // -> 함수를 정의할 때 input, 로직, output을 고려해야 함
+
+        // 함수 선언방식: 함수 선언문, 함수 표현식, 화살표 함수
+
+        // 1. 함수 선언문
+        // function 함수명(매개변수) {
+        //     로직
+        // }
+
+        // 함수 호이스팅: 함수 선언문이 JS엔진에 의해 먼저 실행되는 방식
+        //             원하지 않는 실행결과가 나올 수 있기 때문에
+        //             최근 트렌드는 함수표현식과 화살표 함수 채택하고 있음
+        function hello() {
+            console.log("안녕하세요.");
+            
+        }
+        hello();
+
+        // 2. 함수 표현식
+        // -> 함수를 값으로 취급
+        let play = function(){
+            console.log("즐겁게 놀아요~");    
+        }
+        play();
+
+        let play2 = function(a) {
+            console.log(a + "를 하면서 놀아요.");
+            
+        }
+        play2("게임");
+        play2(369);
+
+        // 3. 화살표 함수
+        // 3-1. 기본 문법
+        let food1 = () => {
+            console.log("마라탕");
+            
+        }
+
+        
+
+        // 3-2. 매개변수가 하나일 경우에는 소괄호 생략 가능
+        // 자바 스크립트는 매개변수에 변수키워드를 생략 가능
+        let food2 = a => {
+            console.log("피자");
+            
+        }
+    </script>
+</body>
+</html>
