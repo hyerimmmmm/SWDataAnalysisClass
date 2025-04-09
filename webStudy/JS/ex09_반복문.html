@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex09_반복문</title>
+</head>
+
+<body>
+    <script>
+        // 랜덤수 생성하는 방법
+        // Math.random(): 0~ 1 사이의 숫자를 실수 형태로 되돌려 주는 메소드
+        // 1~100 사이의 수를 랜덤으로 뽑는 방법
+        // let num = parseInt(Math.random() * 100 + 1);
+        // console.log(num);
+
+        // 1. 1~10사이의 랜덤한 값(ranNum)을 만들기
+        // 2. 사용자에게 랜덤수를 맞추게 하기
+        // 3. 틀렸다면 정답보다 큰지 작은지 안내
+        // 4. 2~3번 반복, 정답 맞추면 정답입니다
+
+        let ranNum = parseInt(Math.random() * 10 + 1);
+
+        while(true) {
+            let input = Number(prompt("숫자를 입력해주세요."));
+            if(input > ranNum) {
+                alert("더 작은 숫자입니다");
+            } else if(input < ranNum) {
+                alert("더 큰 숫자입니다");
+            } else {
+                alert("정답입니다!");
+                break;
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex08_조건문</title>
+</head>
+
+<body>
+    <script>
+        // 조건문: 단순 if, if else, else if, switch case
+        // let change = confirm("비밀번호를 변경하시겠습니까?");
+
+        // 만약에 사용자가 '네'했다면
+        // if(change) {
+        //     alert("변경완료되었습니다")
+        // }
+
+        let java = Number(prompt("자바 점수를 입력해주세요 >> "));
+        let web = Number(prompt("웹 점수를 입력해주세요 >> "));
+        let android = Number(prompt("안드로이드 점수를 입력해주세요 >> "));
+        let avg = (java + web + android) / 3;
+        let grade;
+        if(100 >= java && java >= 0 && 100 >= web && web >= 0 && 100 >= android && android >= 0) {
+            if (avg >= 90) {
+                grade = "A";
+            } else if (avg >= 80) {
+                grade = "B";
+            }
+            else if (avg >= 70) {
+                grade = "C";
+            } else {
+                grade = "F";
+            }
+            console.log("당신의 평균은 " + grade + "학점 입니다.");
+        } else {
+            console.log("잘못된 입력입니다.");  
+        }
+    </script>
+</body>
+
+</html>
