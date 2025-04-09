@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex11_배열실습</title>
+</head>
+<body>
+    <script>
+        let num = Number(prompt("과목 수를 입력하세요."));
+        let sub = []
+        let score = []
+        let sum = 0;
+        for(let i = 0; i < num; i++) {
+            sub.push(prompt("과목명을 입력하세요."));
+        }
+        for(let i = 0; i < num; i++) {
+            score[i] = Number(prompt(sub[i] + "점수를 입력하세요."));
+        }
+
+        for(let i = 0; i < sub.length; i++) {
+            sum += score[i];
+        }
+
+        console.log(sub);
+        console.log(score);
+        console.log(sum);
+        
+        let resultHTML = "";
+        resultHTML += '<table border = "1px solid black"><tr>';
+        for(let i = 0; i < sub.length; i++) {
+            resultHTML += "<td>";
+            resultHTML += sub[i];
+            resultHTML += "</td>";
+        }
+        resultHTML += "<td>총합</td><td>평균</td>"
+
+        resultHTML += "</tr>";
+
+        resultHTML += "<tr>";
+            for(let i = 0; i < score.length; i++) {
+            resultHTML += "<td>";
+            resultHTML += score[i];
+            resultHTML += "</td>";
+        }
+        
+        resultHTML += "<td>"
+        resultHTML += sum;
+        resultHTML += "</td>"
+        resultHTML += "<td>"
+        resultHTML += Number(sum / sub.length);
+
+        
+        resultHTML += "</td>"
+
+        resultHTML += "</tr></table>";
+
+        document.write(resultHTML);
+        
+    </script>
+</body>
+</html>
