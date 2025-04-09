@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex12_배열실습</title>
+</head>
+<body>
+    <script>
+        // 실습
+        // 1 ~ 100까지 5개의 랜덤숫자를 배열에 저장한 후, 가장 큰 수 출력하기
+
+        let ranNum = [];
+        let max = 0;
+        for(let i = 0; i < 5; i++) {
+            ranNum[i] = parseInt(Math.random() * 100 + 1);
+        }
+
+        for(let i = 0; i < ranNum.length; i++) {
+            if(max < ranNum[i]) {
+                max = ranNum[i]
+            }
+        }
+        console.log(ranNum + " 중에 가장 큰 수는 " + max + "입니다.");
+        
+    </script>
+</body>
+</html>
