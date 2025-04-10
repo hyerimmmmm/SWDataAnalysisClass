@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex17_브라우저객체</title>
+</head>
+<body>
+    <script>
+        // BOM(브라우저 객체 모델): 브라우저에서 제공하는 객체
+        // window(): 브라우저 객체 중 최상위. 브라우저 창 관련 기능
+        window.open("https://www.naver.com", "width = 500", "hegiht = 500");
+
+        //location: 브라우저의 주소관련 정보
+        console.log(location.href); // 현재 파일 주소 찍기
+        location.href = "http://127.0.0.1:5500/JS/ex16_객체개요.html" // 현재 파일 주소를 이전에 만든 파일 주소로 변경
+
+        // history -> forword(): 앞으로가기
+        // history -> back(): 뒤로가기
+        
+    </script>
+</body>
+</html>

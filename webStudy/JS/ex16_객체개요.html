@@ -31,32 +31,53 @@
         let minute = today.getMinutes();
         let seconds = today.getSeconds();
 
+        let realDay = "";
+
+        // switch로 하기
         switch (day) {
             case 1:
-                day = "월";
+                realDay = "월";
                 break;
             case 2:
-                day = "화";
+                realDay = "화";
                 break;
             case 3:
-                day = "수";
+                realDay = "수";
                 break;
             case 4:
-                day = "목";
+                realDay = "목";
                 break;
             case 5:
-                day = "금";
+                realDay = "금";
                 break;
             case 6:
-                day = "토";
+                realDay = "토";
                 break;
             case 7:
-                day = "일";
+                realDay = "일";
                 break;
             default:
+                break;
         }
 
-        document.write(`지금은 ${year}년 ${month}월 ${date}일 ${day}요일 ${hour}시 ${minute}분 ${seconds}초 입니다.`)
+        // if문으로 하기
+        if (day == 1) {
+            realDay = "월"
+        } else if (day == 2) {
+            realDay = "화"
+        } else if (day == 3) {
+            realDay = "수"
+        } else if (day == 4) {
+            realDay = "목"
+        } else if (day == 5) {
+            realDay = "금"
+        } else if (day == 6) {
+            realDay = "토"
+        } else if (day == 7) {
+            realDay = "일"
+        }
+
+        document.write(`지금은 ${year}년 ${month}월 ${date}일 ${realDay}요일 ${hour}시 ${minute}분 ${seconds}초 입니다.`)
 
         // 2. 브라우저 객체
         //    - 자바 스크립트 엔진이 구동되는 시점에 제공되는 시점에 제공되는 브라우저 관련된 객체들
