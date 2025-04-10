@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex22_DOM속성변경</title>
+</head>
+
+<body>
+    <input type="text" id="ipt">
+    <button id="btn">입력</button>
+    <div id="area"></div>
+
+    <script>
+        // 사용자가 input에 내용을 적고 버튼을 누르면
+        // area에 사용자의 입력값을 추가
+        let ipt = document.getElementById("ipt");
+        let btn = document.getElementById("btn");
+        let area = document.getElementById("area");
+
+        btn.addEventListener("click", () => {
+            // .value: input태그의 value 속성에 정의된 값을 가져올 수 있음
+            let data = ipt.value;
+            area.innerHTML += "<p>" + data + "</p>";
+            ipt.value = "";
+        })
+
+        // 이벤트가 발생하면 이벤트 함수에 매개변수로 이벤트 객체가 들어옴
+        // 이벤트 객체: 이벤트에 대한 모든 정보들을 담고 있는 객체
+        // ex. keydown 등의 키보드 이벤트가 발생하면,
+        // 이벤트객체.key 등을 이용해서 특정 키보드 값이 눌렸을 때만 이벤트 처리를 해 줄 수 있음
+        ipt.addEventListener("keydown", (e) => {
+            if (e.key == "Enter") {
+                let data = ipt.value;
+                area.innerHTML += "<p>" + data + "</p>";
+                ipt.value = "";
+            }
+        })
+    </script>
+</body>
+
+</html>

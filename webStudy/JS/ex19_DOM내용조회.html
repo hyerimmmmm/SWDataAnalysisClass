@@ -33,7 +33,14 @@
         console.log(area);
         console.log(area.innerHTML);
         
-        
+        // area의 content(태그 제외) 출력
+        console.log(area.textContent);
+        // area의 내용 변경
+        // 1. innerHTML : 조회할 때 태그 포함 조회, 변결할 때 태그를 이해함
+        area.innerHTML = "<h1>새로운 내용</h1>"
+
+        // 2. textContent: 조회할 때 태그 빼고 조회, 변경할 때 태그가 들어있어도 이해못함
+        area.textContent = "<h1>새로운 내용</h1>"
     </script>
 </body>
 </html>

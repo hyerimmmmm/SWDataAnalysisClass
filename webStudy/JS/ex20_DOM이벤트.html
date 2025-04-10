@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex20_DOM이벤트</title>
+</head>
+<body>
+    <p id="txt">내용 변경 전</p>
+    <button id="btn">클릭</button>
+
+    <script>
+        // 버튼에 이벤트를 적용하는 방법
+        // 이벤트: 사용자가 브라우저에 동작하는 행위
+        //       -> 클릭, 스크롤, 호버, 키보드 입력 등
+        // addEventListener(이벤트종류, 이벤트핸들러(콜백함수));
+        // 콜백함수: 이벤트가 발생했을 때 처리하는 함수
+
+        // btn이라는 id 값을 가진 요소를 객체화해서 js 영역으로 데려옴
+        let btn = document.getElementById("btn");
+
+        // btn에 이벤트를 정의
+        btn.addEventListener("click", function(){
+            // -> btn에 클릭 이벤트가 발생했을 때 alert 창이 실행되도록
+            alert("클릭 이벤트 발생");
+        });
+
+        // p 태그를 클릭하면 console 창에 "p 클릭 됨 출력"
+        let txt = document.getElementById("txt");
+        txt.addEventListener("click", () => {
+            console.log("p 클릭 됨");
+        })
+
+        // body영역을 더블 클릭하면 console에 '더블클릭이벤트 발생'
+        let bdy = document.getElementsByTagName("body")[0];
+        const dbEvent = () => {
+            console.log("더블클릭이벤트 발생");
+        }
+        // 외부에 정의된 함수를 콜백함수로 활용할 때는 함수 호출 부분에 소괄호를 적지 않는다.
+        // -> 소괄호를 만나면 즉시 실행 해버림
+        bdy.addEventListener("dblclick", dbEvent); 
+    </script>
+</body>
+</html>

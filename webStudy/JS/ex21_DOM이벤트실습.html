@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex21_DOM이벤트실습</title>
+</head>
+<body>
+    <h1>내용 변경 전</h1>
+    
+    <button>h1 내용변경</button>
+    <button>area에 a 태그 추가</button>
+    <button>area에 ul 태그 추가</button>
+
+    <div id="area">
+        
+    </div>
+
+    <script>
+        let title = document.getElementsByTagName("h1")[0];
+        let btn = document.getElementsByTagName("button");
+        let area = document.getElementById("area");
+
+        // 1번
+        btn[0].addEventListener("click", () => {
+            title.textContent = "즐거운 자바스크립트 수업~"
+        })
+
+        // 2번
+        btn[1].addEventListener("click", () => {
+            area.innerHTML += '<a href="https://www.youtube.com/?gl=KR">유튜브로 이동</a><br>' 
+        })
+
+        // 3번
+        btn[2].addEventListener("click", () => {
+            area.innerHTML += "<ul><li>html</li><li>css</li><li>js</li></ul>"
+        })
+    </script>
+</body>
+</html>
