@@ -16,7 +16,6 @@
 
         body {
             display: flex;
-            flex: auto;
             justify-content: center;
             flex-direction: column;
             align-items: center;
@@ -47,12 +46,20 @@
             border: 1px solid white;
             box-shadow: inset 0px 0px 50px rgb(103, 160, 103);
             border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            align-items: center;
         }
 
         #bo2 {
             border: 1px solid rgb(173, 216, 174);
             box-shadow: inset 0px 0px 50px rgb(103, 160, 103);
             border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            align-items: center;
         }
     </style>
 </head>
@@ -61,7 +68,7 @@
     <div id="bell"></div>
     <div id="bo2">
         <div id="bo">
-            <h1 id="time">09 : 22 : 16</h1>
+            <h1 id="time"></h1>
         </div>
     </div>
 
@@ -78,7 +85,12 @@
             time.textContent = nowTime;
         }
 
+        // 특정 주기마다 함수를 반복할 수 있는 함수
+        // setInterval(반복할 함수, 시간 간격)
+        // -> 시간 간격은 밀리세컨드 단위
+        // -> 1초 = 1000
         getTime();
+        setInterval(getTime, 1000);
     </script>
 </body>
 

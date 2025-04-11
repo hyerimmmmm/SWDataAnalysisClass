@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex02_제이쿼리선택자</title>
+</head>
+
+<body>
+    <div id="parents">
+        <p id="one">하나</p>
+        <p id="two">둘</p>
+        <p id="three">셋</p>
+        <p id="four">넷</p>
+        <p id="five">다섯</p>
+        <p id="six">여섯</p>
+    </div>
+
+    <script src="./jquery-3.7.1.min.js"></script>
+    <script>
+        $("*").css("color", "blue");
+        $("#two").css("color", "red");
+        $("#three + p").css("color", "pink");
+
+        // 1. 자식 요소를 가져오는 방법
+        console.log($("#parents").children());
+        
+        // 2. 부모 요소를 가져오는 방법
+        console.log($("#one").parents());
+        
+        // 3. 이전 요소 조회
+        console.log($("#three").prevAll());
+
+        // 4. 다음 요소 조회
+        console.log($("#three").nextAll());
+    </script>
+</body>
+
+</html>

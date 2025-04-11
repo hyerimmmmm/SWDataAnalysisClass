@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex28_자스실행위치</title>
+</head>
+
+<body>
+    <!--
+    인라인 스크립트: HTML 태그 안에 onclick, onmousover 등등 속성을 사용해서,
+    특정 이벤트가 발생했을 때 간단한 로직 실행 가능
+    -->
+    <button onclick="alert('버튼 클릭')">클릭</button>
+
+    <!-- 외부 스크립트 -->
+    <!-- 주의점: 절대절대 외부 파일 연결하는 script 태그 안에 코드를 작성하지 말자 -->
+    <script src="./ex28.js"></script>
+    <script>
+        // 내부 스크립트: HTML 파일 안에서 script 태그를 사용해서 코드를 작성
+        // head, body에 작성 가능
+        // 작성 위치에 따라서 실행 순서나 브라우저 렌더링에 영향을 미침
+        console.log("내부 스크립트 실행");
+        check();
+    </script>
+</body>
+
+</html>
