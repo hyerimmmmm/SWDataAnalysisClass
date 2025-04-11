@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex24_DOM실습(이미지)</title>
+</head>
+
+<body>
+    <input type="text" id="ipt">
+    <button id="btn">적용</button>
+    <br><br>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUv4ZfACWz0AGrbtA4AcHi0R8rMBLcS9PRHQ&s" alt=""
+        id="img" width="300">
+
+    <script>
+        let img = document.getElementById("img");
+        let ipt = document.getElementById("ipt");
+        let btn = document.getElementById("btn");
+        // img태그의 src 속성에 접근
+        // console.log(img.src);
+        // src 값을 변경
+        // img.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUv4ZfACWz0AGrbtA4AcHi0R8rMBLcS9PRHQ&s";
+
+        // input 태그에 값을 적고 엔터를 누르면
+        // 입력값이 강아지라면 강아지에 해당하는 src 값으로 변경
+        // 입력값이 고양이라면 고양이에 해당하는 src 값으로 변경
+        let data = "";
+        ipt.addEventListener("keydown", (e) => {
+            if (e.key === "Enter") {
+                data = ipt.value;
+                ipt.value = "";
+                if (data === "고양이") {
+                    img.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeipx1dPq9O21ZMW6PyDMQMn6SS6BxIP1Jtg&s";
+                } else if (data === "강아지") {
+                    img.src = "https://mblogthumb-phinf.pstatic.net/MjAyMjAyMDdfMjEy/MDAxNjQ0MTk0Mzk2MzY3.WAeeVCu2V3vqEz_98aWMOjK2RUKI_yHYbuZxrokf-0Ug.sV3LNWlROCJTkeS14PMu2UBl5zTkwK70aKX8B1w2oKQg.JPEG.41minit/1643900851960.jpg?type=w800";
+                }
+            }
+        })
+
+        // 버튼 이벤트
+        btn.addEventListener("click", () => {
+            data = ipt.value;
+            ipt.value = "";
+            if (data === "고양이") {
+                img.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeipx1dPq9O21ZMW6PyDMQMn6SS6BxIP1Jtg&s";
+            } else if (data === "강아지") {
+                img.src = "https://mblogthumb-phinf.pstatic.net/MjAyMjAyMDdfMjEy/MDAxNjQ0MTk0Mzk2MzY3.WAeeVCu2V3vqEz_98aWMOjK2RUKI_yHYbuZxrokf-0Ug.sV3LNWlROCJTkeS14PMu2UBl5zTkwK70aKX8B1w2oKQg.JPEG.41minit/1643900851960.jpg?type=w800";
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>

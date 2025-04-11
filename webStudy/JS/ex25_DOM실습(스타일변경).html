@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex25_DOM실습(스타일변경)</title>
+
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: cadetblue;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <button id="circle">원으로 만들기</button>
+    <button id="square">직사각형으로 만들기</button>
+
+    <script>
+        // 요소의 스타일을 변경하는 방법
+        // 요소.style.스타일속성 = "값"
+        let box = document.getElementById("box");
+        let circle = document.getElementById("circle");
+        let square = document.getElementById("square");
+
+        circle.addEventListener("click", () => {
+            box.style.borderRadius = "50%";
+            box.style.width = "100px";
+            box.style.backgroundColor = "yellow";
+        })
+
+        square.addEventListener("click", () => {
+            box.style.borderRadius = "0px";
+            box.style.width = "200px";
+            box.style.backgroundColor = "green";
+        })
+    </script>
+</body>
+</html>

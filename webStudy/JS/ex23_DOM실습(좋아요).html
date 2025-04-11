@@ -25,15 +25,13 @@
         let dislike = document.getElementById("dislike");
 
         like.addEventListener("click", () => {
-            if (pp.textContent > -1) {
                 let sum = Number(pp.textContent) + 1;
                 pp.textContent = `${sum}`;
-            }
         })
 
         dislike.addEventListener("click", () => {
+            let sub = Number(pp.textContent) - 1;
             if (pp.textContent > 0) {
-                let sub = Number(pp.textContent) - 1;
                 pp.textContent = `${sub}`;
             }
         })

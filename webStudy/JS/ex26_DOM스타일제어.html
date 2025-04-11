@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doex26_DOM스타일제어cument</title>
+
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: cadetblue;
+        }
+        .one {
+            width: 100px;
+            background-color: yellow;
+            border-radius: 50%;
+        }
+        .two {
+            width: 200px;
+            background-color: green;
+            border-radius: 0%;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <button id="st1">1번스타일</button>
+    <button id="st2">2번스타일</button>
+
+    <script>
+        let box = document.getElementById("box");
+        let st1 = document.getElementById("st1");
+        let st2 = document.getElementById("st2");
+
+        st1.addEventListener("click", () => {
+            box.className = "one";
+        })
+
+        st2.addEventListener("click", () => {
+            box.className = "two";
+        })
+    </script>
+</body>
+</html>
