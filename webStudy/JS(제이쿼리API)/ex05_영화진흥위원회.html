@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ex05_영화진흥위원회</title>
 </head>
+
 <body>
     <button id="btn">클릭</button>
     <div id="area"></div>
@@ -16,31 +18,81 @@
 
         // API(Application Programming Interface)
         // - 사용자와 프로그램이 소통하는 규칙
-        
+
         // Open API: 누구나 데이터를 사용할 수 있도록 공개된 API
         // - 장점: 시간, 비용이 많이 드는 기능을 직접 구현하지 않아도 됨
         // - 단점: 대부분의 API들은 사용자에게 인증키를 발급하게 하고, 일정량을 초과하면 요금 부여
         // - 공공데이터포털, 네이버/카카오/구글 개발자센터, API스토어에서 살펴볼 수 있음
         let btn = document.getElementById("btn");
         let area = document.getElementById("area");
-
-        let movieUrl = "http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=06ba645b86594a7c80cc349e4a910bdd&targetDt=20120101"
+        let date = new Date();
+        let y = prompt("상영연도를 입력해주세요");
+        let m = prompt("상영월을 입력해주세요");
+        let d = prompt("상영일을 입력해주세요");
+        if (y.length === 2) [
+            y = "20" + y
+        ]
+        if (m.length === 1) [
+            m = "0" + m
+        ]
+        if (d.length === 1) [
+            d = "0" + d
+        ]
+        let day = y + m + d;
+        
+        let movieUrl = `http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=06ba645b86594a7c80cc349e4a910bdd&targetDt=${day}&repNationCd=F`
 
         let getMovie = () => {
             // 영화 정보를 비동기 통신으로 요청
             $.ajax({
                 url: movieUrl,
                 success: (result) => {
-                    console.log(result);
+                    // console.log(result);
+                    // console.log(result.boxOfficeResult.dailyBoxOfficeList);
+
+                    // ajax로 응답 받은 json 형식의 일별 박스오피스 데이터
+                    let movieList = result.boxOfficeResult.dailyBoxOfficeList;
+
+                    // 영화 순위, 영화명, 개봉일을 웹페이지에 출력
+                    render(movieList);
                 },
                 error: () => {
                     console.log("요청 실패");
-                    
                 }
             });
+        }
+
+        const render = (ml) => {
+            let resultHTML = `
+                <table border="1px solid black">
+                    <tr>
+                        <td>순위</td>
+                        <td>영화명</td>
+                        <td>개봉일</td>
+                        <td>누적관객수</td>
+                        <td>상영스크린수</td>
+                    </tr>
+                `
+
+            for (let i = 0; i < ml.length; i++) {
+                resultHTML += `
+                <tr>
+                    <td>${ml[i].rank}}위</td>
+                    <td>${ml[i].movieNm}</td>
+                    <td>${ml[i].openDt}</td>
+                    <td>${ml[i].audiAcc}</td>
+                    <td>${ml[i].scrnCnt}</td>
+                </tr>
+                `
+            }
+            resultHTML += `</table>`
+
+            area.innerHTML = resultHTML;
+
         }
 
         btn.addEventListener("click", getMovie);
     </script>
 </body>
+
 </html>
