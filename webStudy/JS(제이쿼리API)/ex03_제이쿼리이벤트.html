@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex03_제이쿼리이벤트</title>
+</head>
+<body>
+    <h1>색깔을 바꿔봅시다</h1>
+    <button>클릭</button>
+
+    <script src="./jquery-3.7.1.min.js"></script>
+    <script>
+        // 제이쿼리 이벤트 적용하는 방법
+        // .on(이벤트 종류, 콜백함수)
+        $("button").on("click", () => {
+            $("h1").css("color", "red");
+        })
+
+        // h1에 마우스가 올라가면, h1 글씨를 변경 > 마우스를 올리셨습니다
+        // h1 색상 > 빨강
+        $("h1").on("mouseover", function(){
+            $(this).text("마우스를 올리셨습니다").css("color", "red")
+        })
+
+        // 마우스가 h1을 벗어나면 h1 글씨 변경 > 마우스를 떼셨습니다
+        // h1 색상 > 파랑
+        $("h1").on("mouseout", (e) => {
+            // e.target: 이벤트가 일어난 주체
+            $(e.target).text("마우스를 떼셨습니다").css("color", "blue")
+        })
+    </script>
+</body>
+</html>
