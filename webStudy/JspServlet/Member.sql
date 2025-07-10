@@ -1,0 +1,1 @@
+ALTER TABLE memberinfo RENAME COLUMN column1 TO NAME

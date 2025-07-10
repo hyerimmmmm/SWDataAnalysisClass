@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="SurveyServlet" method="GET">
+		<Strong>직업</Strong>
+		
+		<br><br>
+		
+		<select name="job">
+			<option value="stu">학생</option>
+			<option value="dev">개발자</option>
+			<option value="tea">선생님</option>
+		</select>
+		
+		<br><br>
+		
+		<Strong>성별</Strong>
+		
+		<br><br>
+		
+		<input type="radio" name="gender" value="man">남자
+		<input type="radio" name="gender" value="woman">여자
+		
+		<br><br>
+		
+		<Strong>취미</Strong>
+		
+		<br><br>
+		
+		<input type="checkbox" name="hobby" value="soccer">축구
+		<input type="checkbox" name="hobby" value="baseball">야구
+		<input type="checkbox" name="hobby" value="basketball">농구
+		
+		<br><br>
+		
+		<input type="submit" value="제출">
+	</form>
+</body>
+</html>

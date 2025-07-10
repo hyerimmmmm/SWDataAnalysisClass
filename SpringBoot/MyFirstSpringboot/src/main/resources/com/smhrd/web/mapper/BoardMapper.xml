@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.web.mapper.BoardMapper">
+  
+  <!-- 전체 게시글 조회 -->
+  <select id="selectBoard" resultType="Board">
+    select * from Board
+    order by indate desc
+  </select>
+  
+  <!-- 게시글 추가 -->
+  <insert id="insertBoard" parameterType="Board">
+	  insert into board(bnum, title, writer, content) values(board_num.nextval, #{title}, #{writer}, #{content})
+  </insert>
+  
+  <!-- 개별 게시글 조회 -->
+  <select id="selectOne" parameterType="int" resultType="Board">
+  	select * from board
+  	where bnum=#{bnum}
+  </select>
+  
+  <!-- 내용에 검색한 글자가 포함되어있는 모든 게시글을 조회해주는 쿼리 -->
+  <select id="search" parameterType="SearchCriteria" resultType="Board">
+  	select * from board
+  	where ${filter} like '%' || #{search} || '%'
+  	<!-- <include refid="searchOption" /> -->
+  </select>
+  
+  <sql id="searchOption">
+  	<if test="filter == 'content'">
+  		where content like '%' || #{search} || '%'
+  	</if>
+  	<if test="filter == 'writer'">
+  		where writer like '%' || #{search} || '%'
+  	</if>
+  	<if test="filter == 'title'">
+  		where title like '%' || #{search} || '%'
+  	</if>
+  </sql>
+  
+</mapper>
